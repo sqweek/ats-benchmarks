@@ -1,0 +1,22 @@
+# Results on my windows laptop, under WSL
+# Power plan set to max CPU frequency to get consistent results
+
+# You need ats-bench_dats.c, which patscc will build from ats-bench.dats, or you can
+# grab a copy from http://sqweek.net/tmp/ats-bench_dats.c
+
+$ ./run  #no optimisation
+       collatz(2223):  178225 ops in 1000477000ns = 5613.6ns/op
+     collatz_c(2223): 2123275 ops in 1000143000ns = 471.0ns/op
+       collatz(10971):  122432 ops in 1000437000ns = 8171.4ns/op
+     collatz_c(10971): 1365920 ops in 1000420000ns = 732.4ns/op
+       collatz(106239):   94084 ops in 1000395000ns = 10633.0ns/op
+     collatz_c(106239):  965000 ops in 1000336000ns = 1036.6ns/op
+
+$ ./run -O3
+       collatz(2223): 3640393 ops in 1000485000ns = 274.8ns/op
+     collatz_c(2223): 3169877 ops in 1000304000ns = 315.6ns/op
+       collatz(10971): 2509202 ops in 1000477000ns = 398.7ns/op
+     collatz_c(10971): 2191588 ops in 1000059000ns = 456.3ns/op
+       collatz(106239): 1907603 ops in 1000520000ns = 524.5ns/op
+     collatz_c(106239): 1664418 ops in 1000103000ns = 600.9ns/op
+
