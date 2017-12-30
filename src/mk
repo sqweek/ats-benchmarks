@@ -1,1 +1,1 @@
-./cc "$@" ats-bench_dats.c -D_GNU_SOURCE bench.c -o bench
+./cc "$@" ats-bench_dats.c -D_GNU_SOURCE bench.c extra.c -o bench

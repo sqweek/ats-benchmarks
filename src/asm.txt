@@ -1,0 +1,127 @@
+0000000000400b90 <collatz_fs>:
+  400b90:	83 ff 01             	cmp    $0x1,%edi
+  400b93:	74 31                	je     400bc6 <collatz_fs+0x36>
+  400b95:	ba 01 00 00 00       	mov    $0x1,%edx
+  400b9a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  400ba0:	89 f9                	mov    %edi,%ecx
+  400ba2:	8d 74 7f 01          	lea    0x1(%rdi,%rdi,2),%esi
+  400ba6:	c1 e9 1f             	shr    $0x1f,%ecx
+  400ba9:	8d 04 0f             	lea    (%rdi,%rcx,1),%eax
+  400bac:	01 cf                	add    %ecx,%edi
+  400bae:	d1 ff                	sar    %edi
+  400bb0:	83 e0 01             	and    $0x1,%eax
+  400bb3:	39 c8                	cmp    %ecx,%eax
+  400bb5:	89 d0                	mov    %edx,%eax
+  400bb7:	0f 45 fe             	cmovne %esi,%edi
+  400bba:	83 c2 01             	add    $0x1,%edx
+  400bbd:	83 ff 01             	cmp    $0x1,%edi
+  400bc0:	75 de                	jne    400ba0 <collatz_fs+0x10>
+  400bc2:	83 c0 01             	add    $0x1,%eax
+  400bc5:	c3                   	retq   
+  400bc6:	b8 01 00 00 00       	mov    $0x1,%eax
+  400bcb:	c3                   	retq   
+  400bcc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000400bd0 <collatz>:
+  400bd0:	83 ff 01             	cmp    $0x1,%edi
+  400bd3:	b8 01 00 00 00       	mov    $0x1,%eax
+  400bd8:	7e 20                	jle    400bfa <collatz+0x2a>
+  400bda:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  400be0:	89 f9                	mov    %edi,%ecx
+  400be2:	8d 54 7f 01          	lea    0x1(%rdi,%rdi,2),%edx
+  400be6:	83 c0 01             	add    $0x1,%eax
+  400be9:	d1 f9                	sar    %ecx
+  400beb:	83 e7 01             	and    $0x1,%edi
+  400bee:	0f 44 d1             	cmove  %ecx,%edx
+  400bf1:	83 fa 01             	cmp    $0x1,%edx
+  400bf4:	89 d7                	mov    %edx,%edi
+  400bf6:	7f e8                	jg     400be0 <collatz+0x10>
+  400bf8:	f3 c3                	repz retq 
+  400bfa:	f3 c3                	repz retq 
+  400bfc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000400c20 <collatz_c>:
+  400c20:	83 ff 01             	cmp    $0x1,%edi
+  400c23:	b8 01 00 00 00       	mov    $0x1,%eax
+  400c28:	74 25                	je     400c4f <collatz_c+0x2f>
+  400c2a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  400c30:	89 fa                	mov    %edi,%edx
+  400c32:	8d 4c 7f 01          	lea    0x1(%rdi,%rdi,2),%ecx
+  400c36:	c1 ea 1f             	shr    $0x1f,%edx
+  400c39:	01 fa                	add    %edi,%edx
+  400c3b:	d1 fa                	sar    %edx
+  400c3d:	83 e7 01             	and    $0x1,%edi
+  400c40:	0f 44 ca             	cmove  %edx,%ecx
+  400c43:	83 c0 01             	add    $0x1,%eax
+  400c46:	83 f9 01             	cmp    $0x1,%ecx
+  400c49:	89 cf                	mov    %ecx,%edi
+  400c4b:	75 e3                	jne    400c30 <collatz_c+0x10>
+  400c4d:	f3 c3                	repz retq 
+  400c4f:	f3 c3                	repz retq 
+  400c51:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400c58:	00 00 00 
+  400c5b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000400c70 <collatz_cr>:
+  400c70:	b8 01 00 00 00       	mov    $0x1,%eax
+  400c75:	eb 15                	jmp    400c8c <collatz_cr+0x1c>
+  400c77:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  400c7e:	00 00 
+  400c80:	89 fa                	mov    %edi,%edx
+  400c82:	c1 ea 1f             	shr    $0x1f,%edx
+  400c85:	01 d7                	add    %edx,%edi
+  400c87:	d1 ff                	sar    %edi
+  400c89:	83 c0 01             	add    $0x1,%eax
+  400c8c:	40 f6 c7 01          	test   $0x1,%dil
+  400c90:	74 ee                	je     400c80 <collatz_cr+0x10>
+  400c92:	83 ff 01             	cmp    $0x1,%edi
+  400c95:	74 09                	je     400ca0 <collatz_cr+0x30>
+  400c97:	8d 7c 7f 01          	lea    0x1(%rdi,%rdi,2),%edi
+  400c9b:	eb ec                	jmp    400c89 <collatz_cr+0x19>
+  400c9d:	0f 1f 00             	nopl   (%rax)
+  400ca0:	f3 c3                	repz retq 
+  400ca2:	66 66 66 66 66 2e 0f 	data32 data32 data32 data32 nopw %cs:0x0(%rax,%rax,1)
+  400ca9:	1f 84 00 00 00 00 00 
+
+0000000000400cb0 <collatz_ctr>:
+  400cb0:	ba 02 00 00 00       	mov    $0x2,%edx
+  400cb5:	eb 15                	jmp    400ccc <collatz_ctr+0x1c>
+  400cb7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  400cbe:	00 00 
+  400cc0:	89 f8                	mov    %edi,%eax
+  400cc2:	c1 e8 1f             	shr    $0x1f,%eax
+  400cc5:	01 c7                	add    %eax,%edi
+  400cc7:	d1 ff                	sar    %edi
+  400cc9:	83 c2 01             	add    $0x1,%edx
+  400ccc:	40 f6 c7 01          	test   $0x1,%dil
+  400cd0:	8d 42 ff             	lea    -0x1(%rdx),%eax
+  400cd3:	74 eb                	je     400cc0 <collatz_ctr+0x10>
+  400cd5:	83 ff 01             	cmp    $0x1,%edi
+  400cd8:	74 06                	je     400ce0 <collatz_ctr+0x30>
+  400cda:	8d 7c 7f 01          	lea    0x1(%rdi,%rdi,2),%edi
+  400cde:	eb e9                	jmp    400cc9 <collatz_ctr+0x19>
+  400ce0:	f3 c3                	repz retq 
+  400ce2:	66 66 66 66 66 2e 0f 	data32 data32 data32 data32 nopw %cs:0x0(%rax,%rax,1)
+  400ce9:	1f 84 00 00 00 00 00 
+
+0000000000400cf0 <collatz_c2>:
+  400cf0:	83 ff 01             	cmp    $0x1,%edi
+  400cf3:	b8 01 00 00 00       	mov    $0x1,%eax
+  400cf8:	74 25                	je     400d1f <collatz_c2+0x2f>
+  400cfa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  400d00:	89 fa                	mov    %edi,%edx
+  400d02:	8d 4c 7f 01          	lea    0x1(%rdi,%rdi,2),%ecx
+  400d06:	c1 ea 1f             	shr    $0x1f,%edx
+  400d09:	01 fa                	add    %edi,%edx
+  400d0b:	d1 fa                	sar    %edx
+  400d0d:	83 e7 01             	and    $0x1,%edi
+  400d10:	0f 44 ca             	cmove  %edx,%ecx
+  400d13:	83 c0 01             	add    $0x1,%eax
+  400d16:	83 f9 01             	cmp    $0x1,%ecx
+  400d19:	89 cf                	mov    %ecx,%edi
+  400d1b:	75 e3                	jne    400d00 <collatz_c2+0x10>
+  400d1d:	f3 c3                	repz retq 
+  400d1f:	f3 c3                	repz retq 
+  400d21:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400d28:	00 00 00 
+  400d2b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)

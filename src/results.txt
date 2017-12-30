@@ -5,18 +5,46 @@
 # grab a copy from http://sqweek.net/tmp/ats-bench_dats.c
 
 $ ./run  #no optimisation
-       collatz(2223):  178225 ops in 1000477000ns = 5613.6ns/op
-     collatz_c(2223): 2123275 ops in 1000143000ns = 471.0ns/op
-       collatz(10971):  122432 ops in 1000437000ns = 8171.4ns/op
-     collatz_c(10971): 1365920 ops in 1000420000ns = 732.4ns/op
-       collatz(106239):   94084 ops in 1000395000ns = 10633.0ns/op
-     collatz_c(106239):  965000 ops in 1000336000ns = 1036.6ns/op
+       collatz(2223)=183:  178482 ops in 1000415000ns = 5605.1ns/op
+    collatz_fs(2223)=183:  197404 ops in 1000457000ns = 5068.1ns/op
+     collatz_c(2223)=183: 2109670 ops in 1000366000ns = 474.2ns/op
+    collatz_c2(2223)=183: 2134112 ops in 1000437000ns = 468.8ns/op
+    collatz_cr(2223)=183: 1167308 ops in 1000317000ns = 856.9ns/op
+   collatz_ctr(2223)=183: 1121343 ops in 1000394000ns = 892.1ns/op
+
+       collatz(10971)=268:  119167 ops in 1000155000ns = 8392.9ns/op
+    collatz_fs(10971)=268:  131557 ops in 1000477000ns = 7604.9ns/op
+     collatz_c(10971)=268: 1344108 ops in 1000104000ns = 744.1ns/op
+    collatz_c2(10971)=268: 1442217 ops in 1000360000ns = 693.6ns/op
+    collatz_cr(10971)=268:  734392 ops in 1000416000ns = 1362.2ns/op
+   collatz_ctr(10971)=268:  712304 ops in 1000060000ns = 1404.0ns/op
+
+       collatz(106239)=354:   93121 ops in 1000531000ns = 10744.4ns/op
+    collatz_fs(106239)=354:  100637 ops in 1000519000ns = 9941.9ns/op
+     collatz_c(106239)=354:  937323 ops in 1000230000ns = 1067.1ns/op
+    collatz_c2(106239)=354: 1047215 ops in 1000071000ns = 955.0ns/op
+    collatz_cr(106239)=354:  529486 ops in 1000093000ns = 1888.8ns/op
+   collatz_ctr(106239)=354:  509233 ops in 1000426000ns = 1964.6ns/op
 
 $ ./run -O3
-       collatz(2223): 3640393 ops in 1000485000ns = 274.8ns/op
-     collatz_c(2223): 3169877 ops in 1000304000ns = 315.6ns/op
-       collatz(10971): 2509202 ops in 1000477000ns = 398.7ns/op
-     collatz_c(10971): 2191588 ops in 1000059000ns = 456.3ns/op
-       collatz(106239): 1907603 ops in 1000520000ns = 524.5ns/op
-     collatz_c(106239): 1664418 ops in 1000103000ns = 600.9ns/op
+       collatz(2223)=183: 3583718 ops in 1000435000ns = 279.2ns/op
+    collatz_fs(2223)=183: 2533987 ops in 1000423000ns = 394.8ns/op
+     collatz_c(2223)=183: 3119381 ops in 1000293000ns = 320.7ns/op
+    collatz_c2(2223)=183: 3004400 ops in 1000193000ns = 332.9ns/op
+    collatz_cr(2223)=183: 5139613 ops in 1000412000ns = 194.6ns/op
+   collatz_ctr(2223)=183: 4675504 ops in 1000423000ns = 214.0ns/op
+
+       collatz(10971)=268: 2428363 ops in 1000145000ns = 411.9ns/op
+    collatz_fs(10971)=268: 1716341 ops in 1000374000ns = 582.9ns/op
+     collatz_c(10971)=268: 2082188 ops in 1000419000ns = 480.5ns/op
+    collatz_c2(10971)=268: 2077839 ops in 1000090000ns = 481.3ns/op
+    collatz_cr(10971)=268: 3503623 ops in 1000407000ns = 285.5ns/op
+   collatz_ctr(10971)=268: 3275871 ops in 1000444000ns = 305.4ns/op
+
+       collatz(106239)=354: 1772475 ops in 1000471000ns = 564.4ns/op
+    collatz_fs(106239)=354: 1265719 ops in 1000149000ns = 790.2ns/op
+     collatz_c(106239)=354: 1585943 ops in 1000422000ns = 630.8ns/op
+    collatz_c2(106239)=354: 1601753 ops in 1000417000ns = 624.6ns/op
+    collatz_cr(106239)=354: 2639699 ops in 1000096000ns = 378.9ns/op
+   collatz_ctr(106239)=354: 2509237 ops in 1000247000ns = 398.6ns/op
 
